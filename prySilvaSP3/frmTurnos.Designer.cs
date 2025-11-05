@@ -28,74 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            gbTurnos = new GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTurnos));
+            grpRegistro = new GroupBox();
             txtTitular = new TextBox();
-            numAño = new NumericUpDown();
+            numAñoFabricacion = new NumericUpDown();
             txtDominio = new TextBox();
-            txtNumero = new TextBox();
+            txtNroTurno = new TextBox();
             lblTitular = new Label();
             lblAño = new Label();
             lblDominio = new Label();
             lblNumero = new Label();
             cmdRegistrar = new Button();
             cmdSalir = new Button();
-            gbEstadisticas = new GroupBox();
-            txtCantDom = new TextBox();
-            txtAñoAntiguo = new TextBox();
-            txtCant = new TextBox();
+            grpConsulta = new GroupBox();
+            txtDominio6Caracteres = new TextBox();
+            txtAñoMasAntiguo = new TextBox();
+            txtCantidadTurnos = new TextBox();
             lblCantDom = new Label();
             lblAñoAntiguo = new Label();
             lblCant = new Label();
             cmdConsultar = new Button();
-            gbTurnos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numAño).BeginInit();
-            gbEstadisticas.SuspendLayout();
+            grpRegistro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numAñoFabricacion).BeginInit();
+            grpConsulta.SuspendLayout();
             SuspendLayout();
             // 
-            // gbTurnos
+            // grpRegistro
             // 
-            gbTurnos.Controls.Add(txtTitular);
-            gbTurnos.Controls.Add(numAño);
-            gbTurnos.Controls.Add(txtDominio);
-            gbTurnos.Controls.Add(txtNumero);
-            gbTurnos.Controls.Add(lblTitular);
-            gbTurnos.Controls.Add(lblAño);
-            gbTurnos.Controls.Add(lblDominio);
-            gbTurnos.Controls.Add(lblNumero);
-            gbTurnos.Location = new Point(12, 12);
-            gbTurnos.Name = "gbTurnos";
-            gbTurnos.Size = new Size(414, 192);
-            gbTurnos.TabIndex = 0;
-            gbTurnos.TabStop = false;
-            gbTurnos.Text = "Registro de Turnos";
+            grpRegistro.Controls.Add(txtTitular);
+            grpRegistro.Controls.Add(numAñoFabricacion);
+            grpRegistro.Controls.Add(txtDominio);
+            grpRegistro.Controls.Add(txtNroTurno);
+            grpRegistro.Controls.Add(lblTitular);
+            grpRegistro.Controls.Add(lblAño);
+            grpRegistro.Controls.Add(lblDominio);
+            grpRegistro.Controls.Add(lblNumero);
+            grpRegistro.Location = new Point(12, 12);
+            grpRegistro.Name = "grpRegistro";
+            grpRegistro.Size = new Size(414, 192);
+            grpRegistro.TabIndex = 0;
+            grpRegistro.TabStop = false;
+            grpRegistro.Text = "Registro de Turnos";
             // 
             // txtTitular
             // 
             txtTitular.Location = new Point(138, 144);
+            txtTitular.MaxLength = 30;
             txtTitular.Name = "txtTitular";
             txtTitular.Size = new Size(247, 23);
             txtTitular.TabIndex = 7;
             // 
-            // numAño
+            // numAñoFabricacion
             // 
-            numAño.Location = new Point(138, 105);
-            numAño.Name = "numAño";
-            numAño.Size = new Size(59, 23);
-            numAño.TabIndex = 6;
+            numAñoFabricacion.Location = new Point(138, 105);
+            numAñoFabricacion.Maximum = new decimal(new int[] { 2025, 0, 0, 0 });
+            numAñoFabricacion.Minimum = new decimal(new int[] { 1950, 0, 0, 0 });
+            numAñoFabricacion.Name = "numAñoFabricacion";
+            numAñoFabricacion.Size = new Size(59, 23);
+            numAñoFabricacion.TabIndex = 6;
+            numAñoFabricacion.Value = new decimal(new int[] { 1950, 0, 0, 0 });
             // 
             // txtDominio
             // 
             txtDominio.Location = new Point(138, 70);
+            txtDominio.MaxLength = 7;
             txtDominio.Name = "txtDominio";
             txtDominio.Size = new Size(115, 23);
             txtDominio.TabIndex = 5;
+            txtDominio.KeyPress += txtDominio_KeyPress;
             // 
-            // txtNumero
+            // txtNroTurno
             // 
-            txtNumero.Location = new Point(138, 34);
-            txtNumero.Name = "txtNumero";
-            txtNumero.Size = new Size(78, 23);
-            txtNumero.TabIndex = 4;
+            txtNroTurno.Location = new Point(138, 34);
+            txtNroTurno.MaxLength = 5;
+            txtNroTurno.Name = "txtNroTurno";
+            txtNroTurno.Size = new Size(78, 23);
+            txtNroTurno.TabIndex = 4;
+            txtNroTurno.KeyPress += txtNroTurno_KeyPress;
             // 
             // lblTitular
             // 
@@ -141,6 +150,7 @@
             cmdRegistrar.TabIndex = 1;
             cmdRegistrar.Text = "Registrar";
             cmdRegistrar.UseVisualStyleBackColor = true;
+            cmdRegistrar.Click += cmdRegistrar_Click;
             // 
             // cmdSalir
             // 
@@ -150,42 +160,46 @@
             cmdSalir.TabIndex = 2;
             cmdSalir.Text = "Salir";
             cmdSalir.UseVisualStyleBackColor = true;
+            cmdSalir.Click += cmdSalir_Click;
             // 
-            // gbEstadisticas
+            // grpConsulta
             // 
-            gbEstadisticas.Controls.Add(txtCantDom);
-            gbEstadisticas.Controls.Add(txtAñoAntiguo);
-            gbEstadisticas.Controls.Add(txtCant);
-            gbEstadisticas.Controls.Add(lblCantDom);
-            gbEstadisticas.Controls.Add(lblAñoAntiguo);
-            gbEstadisticas.Controls.Add(lblCant);
-            gbEstadisticas.Location = new Point(12, 218);
-            gbEstadisticas.Name = "gbEstadisticas";
-            gbEstadisticas.Size = new Size(414, 141);
-            gbEstadisticas.TabIndex = 3;
-            gbEstadisticas.TabStop = false;
-            gbEstadisticas.Text = "Estadísticas";
+            grpConsulta.Controls.Add(txtDominio6Caracteres);
+            grpConsulta.Controls.Add(txtAñoMasAntiguo);
+            grpConsulta.Controls.Add(txtCantidadTurnos);
+            grpConsulta.Controls.Add(lblCantDom);
+            grpConsulta.Controls.Add(lblAñoAntiguo);
+            grpConsulta.Controls.Add(lblCant);
+            grpConsulta.Location = new Point(12, 218);
+            grpConsulta.Name = "grpConsulta";
+            grpConsulta.Size = new Size(414, 141);
+            grpConsulta.TabIndex = 3;
+            grpConsulta.TabStop = false;
+            grpConsulta.Text = "Estadísticas";
             // 
-            // txtCantDom
+            // txtDominio6Caracteres
             // 
-            txtCantDom.Location = new Point(249, 101);
-            txtCantDom.Name = "txtCantDom";
-            txtCantDom.Size = new Size(63, 23);
-            txtCantDom.TabIndex = 5;
+            txtDominio6Caracteres.Location = new Point(249, 101);
+            txtDominio6Caracteres.Name = "txtDominio6Caracteres";
+            txtDominio6Caracteres.ReadOnly = true;
+            txtDominio6Caracteres.Size = new Size(63, 23);
+            txtDominio6Caracteres.TabIndex = 5;
             // 
-            // txtAñoAntiguo
+            // txtAñoMasAntiguo
             // 
-            txtAñoAntiguo.Location = new Point(249, 64);
-            txtAñoAntiguo.Name = "txtAñoAntiguo";
-            txtAñoAntiguo.Size = new Size(63, 23);
-            txtAñoAntiguo.TabIndex = 4;
+            txtAñoMasAntiguo.Location = new Point(249, 64);
+            txtAñoMasAntiguo.Name = "txtAñoMasAntiguo";
+            txtAñoMasAntiguo.ReadOnly = true;
+            txtAñoMasAntiguo.Size = new Size(63, 23);
+            txtAñoMasAntiguo.TabIndex = 4;
             // 
-            // txtCant
+            // txtCantidadTurnos
             // 
-            txtCant.Location = new Point(249, 27);
-            txtCant.Name = "txtCant";
-            txtCant.Size = new Size(63, 23);
-            txtCant.TabIndex = 3;
+            txtCantidadTurnos.Location = new Point(249, 27);
+            txtCantidadTurnos.Name = "txtCantidadTurnos";
+            txtCantidadTurnos.ReadOnly = true;
+            txtCantidadTurnos.Size = new Size(63, 23);
+            txtCantidadTurnos.TabIndex = 3;
             // 
             // lblCantDom
             // 
@@ -222,6 +236,7 @@
             cmdConsultar.TabIndex = 4;
             cmdConsultar.Text = "Consultar";
             cmdConsultar.UseVisualStyleBackColor = true;
+            cmdConsultar.Click += cmdConsultar_Click;
             // 
             // frmTurnos
             // 
@@ -229,26 +244,31 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(564, 371);
             Controls.Add(cmdConsultar);
-            Controls.Add(gbEstadisticas);
+            Controls.Add(grpConsulta);
             Controls.Add(cmdSalir);
             Controls.Add(cmdRegistrar);
-            Controls.Add(gbTurnos);
+            Controls.Add(grpRegistro);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "frmTurnos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Auto Test";
-            gbTurnos.ResumeLayout(false);
-            gbTurnos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numAño).EndInit();
-            gbEstadisticas.ResumeLayout(false);
-            gbEstadisticas.PerformLayout();
+            Load += frmTurnos_Load;
+            grpRegistro.ResumeLayout(false);
+            grpRegistro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numAñoFabricacion).EndInit();
+            grpConsulta.ResumeLayout(false);
+            grpConsulta.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox gbTurnos;
-        private NumericUpDown numAño;
+        private GroupBox grpRegistro;
+        private NumericUpDown numAñoFabricacion;
         private TextBox txtDominio;
-        private TextBox txtNumero;
+        private TextBox txtNroTurno;
         private Label lblTitular;
         private Label lblAño;
         private Label lblDominio;
@@ -256,10 +276,10 @@
         private TextBox txtTitular;
         private Button cmdRegistrar;
         private Button cmdSalir;
-        private GroupBox gbEstadisticas;
-        private TextBox txtCantDom;
-        private TextBox txtAñoAntiguo;
-        private TextBox txtCant;
+        private GroupBox grpConsulta;
+        private TextBox txtDominio6Caracteres;
+        private TextBox txtAñoMasAntiguo;
+        private TextBox txtCantidadTurnos;
         private Label lblCantDom;
         private Label lblAñoAntiguo;
         private Label lblCant;
