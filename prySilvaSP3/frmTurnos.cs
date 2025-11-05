@@ -93,19 +93,19 @@ namespace prySilvaSP3
                     else
                     {
                         MessageBox.Show("El Número de Turno ingresado ya existe",
-                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            "Registro de turnos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
                     MessageBox.Show("El Dominio debe tener 6 o 7 caracteres",
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        "Registro de turnos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Debe completar los datos faltantes", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe completar los datos faltantes", "Registro de turnos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             return resultado;
         }
